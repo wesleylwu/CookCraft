@@ -13,7 +13,7 @@
 
 ## Figma
 
-[AI Cookbook Figma Design File](https://www.figma.com/)
+[AI Cookbook Figma Design File](https://www.figma.com/design/QIOP4dwPlrlEDLme7KUX90/AI-Cookbook?t=bEVqYDXBpntDum2g-1)
 
 ## Node.js
 
