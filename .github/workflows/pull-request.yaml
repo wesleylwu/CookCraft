@@ -1,4 +1,4 @@
-name: ACM UCR Website
+name: AI Cookbook
 on:
   pull_request:
     branches: [main, dev]
