@@ -13,7 +13,6 @@
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
-
 ## Figma
 
 [AI Cookbook Figma Design File](https://www.figma.com/design/QIOP4dwPlrlEDLme7KUX90/AI-Cookbook?t=bEVqYDXBpntDum2g-1)
