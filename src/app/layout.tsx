@@ -1,13 +1,16 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import { ReactQueryClientProvider } from "@/utils/react-query";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+});
 
 export const metadata = {
-  title: "AI Cookbook",
+  title: "CookCraft",
   description:
-    "AI Cookbook turns your ingredients into recipes. Just list what you have, and it instantly creates meal ideas",
+    "CookCraft turns your ingredients into recipes. Just list what you have, and it instantly creates meal ideas",
 };
 
 type LayoutProps = {
@@ -17,7 +20,7 @@ type LayoutProps = {
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <ReactQueryClientProvider>{children}</ReactQueryClientProvider>
       </body>
     </html>

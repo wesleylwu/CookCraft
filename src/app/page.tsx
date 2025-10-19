@@ -1,7 +1,9 @@
+import ChatBot from "@/components/home/ChatBot";
+
 const Home = () => {
   return (
-    <div className="flex h-screen w-screen items-center justify-center">
-      Hello World
+    <div className="bg-cookcraft-white h-screen w-screen">
+      <ChatBot />
     </div>
   );
 };
