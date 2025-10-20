@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Roboto } from "next/font/google";
 import { ReactQueryClientProvider } from "@/utils/react-query";
+import NavBar from "@/components/NavBar";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <body className={roboto.className}>
+        <NavBar />
         <ReactQueryClientProvider>{children}</ReactQueryClientProvider>
       </body>
     </html>
