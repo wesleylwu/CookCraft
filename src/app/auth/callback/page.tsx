@@ -13,7 +13,6 @@ const AuthCallbackPage = () => {
   useEffect(() => {
     const handleCallback = async () => {
       try {
-
         const hashParams = new URLSearchParams(
           window.location.hash.substring(1),
         );
@@ -21,7 +20,6 @@ const AuthCallbackPage = () => {
         const refreshToken = hashParams.get("refresh_token");
 
         if (accessToken && refreshToken) {
-         
           const { error } = await supabase.auth.setSession({
             access_token: accessToken,
             refresh_token: refreshToken,
@@ -29,15 +27,12 @@ const AuthCallbackPage = () => {
 
           if (error) throw error;
 
-          
           router.push("/profile");
         } else {
           throw new Error("No tokens found in URL");
         }
       } catch (err) {
-        setError(
-          err instanceof Error ? err.message : "Authentication failed",
-        );
+        setError(err instanceof Error ? err.message : "Authentication failed");
       }
     };
 
@@ -76,4 +71,3 @@ const AuthCallbackPage = () => {
 };
 
 export default AuthCallbackPage;
-

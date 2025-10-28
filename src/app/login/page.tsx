@@ -14,7 +14,7 @@ const LoginPage = () => {
   const [error, setError] = useState("");
   const { user } = useAuth();
   const router = useRouter();
-  
+
   if (user) {
     router.push("/profile");
     return null;
@@ -37,9 +37,7 @@ const LoginPage = () => {
 
       setEmailSent(true);
     } catch (error) {
-      setError(
-        error instanceof Error ? error.message : "An error occurred",
-      );
+      setError(error instanceof Error ? error.message : "An error occurred");
     } finally {
       setLoading(false);
     }
@@ -74,7 +72,7 @@ const LoginPage = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="border-cookcraft-olive rounded-2xl border-3 p-4 text-lg focus:border-cookcraft-red focus:outline-none"
+              className="border-cookcraft-olive focus:border-cookcraft-red rounded-2xl border-3 p-4 text-lg focus:outline-none"
             />
           </div>
 
@@ -138,4 +136,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
