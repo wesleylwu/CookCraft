@@ -6,9 +6,11 @@ import chefHatIcon from "@/public/chefHatIcon.webp";
 import profileIcon from "@/public/profileIcon.webp";
 import navigations from "@/data/NavBarLinks";
 import { usePathname } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
 
 const NavBar = () => {
   const pathName = usePathname();
+  const { user, loading } = useAuth();
 
   return (
     <div className="bg-cookcraft-white font-cookcraft-roboto border-cookcraft-olive relative flex justify-between border-b-3 p-5">
@@ -36,9 +38,13 @@ const NavBar = () => {
       </div>
 
       <div className="mr-10">
-        <Link href="/profile">
-          <Image src={profileIcon} alt="Profile Icon" width={40} />
-        </Link>
+        {loading ? (
+          <div className="border-cookcraft-olive h-10 w-10 animate-spin rounded-full border-3 border-t-transparent"></div>
+        ) : (
+          <Link href={user ? "/profile" : "/login"}>
+            <Image src={profileIcon} alt="Profile Icon" width={40} />
+          </Link>
+        )}
       </div>
     </div>
   );
