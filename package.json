@@ -12,6 +12,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.76.1",
     "@tanstack/react-query": "5.69.0",
     "lucide-react": "0.484.0",
     "next": "15.2.4",
