@@ -9,8 +9,8 @@ const navigations: navigation[] = [
     link: "/recipes",
   },
   {
-    name: "Meals",
-    link: "/meals",
+    name: "History",
+    link: "/history",
   },
   {
     name: "Inventory",

@@ -4,7 +4,6 @@ const Recipes = () => {
   return (
     <div className="bg-cookcraft-white h-screen w-screen">
       <Header title="Recipes" />
-
       <RecipeCards />
     </div>
   );
