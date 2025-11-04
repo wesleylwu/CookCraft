@@ -21,20 +21,21 @@ const NavBar = () => {
       </div>
 
       <div className="flex items-center justify-center gap-25 text-2xl font-bold">
-        {navigations.map(({ link, name }, index) => (
-          <div key={index}>
-            <Link
-              href={link}
-              className={
-                pathName === link
-                  ? "text-cookcraft-red"
-                  : "text-cookcraft-olive"
-              }
-            >
-              {name}
-            </Link>
-          </div>
-        ))}
+        {user &&
+          navigations.map(({ link, name }, index) => (
+            <div key={index}>
+              <Link
+                href={link}
+                className={
+                  pathName === link
+                    ? "text-cookcraft-red"
+                    : "text-cookcraft-olive"
+                }
+              >
+                {name}
+              </Link>
+            </div>
+          ))}
       </div>
 
       <div className="mr-10">
