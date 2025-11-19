@@ -111,7 +111,7 @@ const RecipesPage = () => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as "rating" | "time")}
-            className="border-cookcraft-olive rounded-2xl border-3 p-3"
+            className="border-cookcraft-olive cursor-pointer rounded-2xl border-3 p-3"
           >
             <option value="rating">Sort by Rating</option>
             <option value="time">Sort by Time</option>
@@ -225,7 +225,7 @@ const RecipesPage = () => {
                           showMealForm === recipe.id ? null : recipe.id,
                         )
                       }
-                      className="bg-cookcraft-red hover:bg-cookcraft-yellow flex-1 rounded-2xl p-2 font-bold text-white transition-colors"
+                      className="bg-cookcraft-red hover:bg-cookcraft-yellow flex-1 cursor-pointer rounded-2xl p-2 font-bold text-white transition-colors"
                     >
                       {showMealForm === recipe.id ? "Cancel" : "Log Meal"}
                     </button>
@@ -237,7 +237,7 @@ const RecipesPage = () => {
                     </Link>
                     <button
                       onClick={() => handleDelete(recipe.id)}
-                      className="text-cookcraft-red hover:text-cookcraft-yellow rounded-2xl border-3 p-2 px-3 font-bold transition-colors"
+                      className="text-cookcraft-red hover:text-cookcraft-yellow cursor-pointer rounded-2xl border-3 p-2 px-3 font-bold transition-colors"
                     >
                       ×
                     </button>

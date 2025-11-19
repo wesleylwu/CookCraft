@@ -96,7 +96,7 @@ const HistoryPage = () => {
                     </div>
                     <button
                       onClick={() => handleDeleteMeal(mealItem.id)}
-                      className="text-cookcraft-red hover:text-cookcraft-yellow rounded-2xl border-3 px-4 py-2 font-bold transition-colors"
+                      className="text-cookcraft-red hover:text-cookcraft-yellow cursor-pointer rounded-2xl border-3 px-4 py-2 font-bold transition-colors"
                     >
                       Delete
                     </button>

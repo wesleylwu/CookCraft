@@ -143,7 +143,7 @@ const InventoryPage = () => {
           </h1>
           <button
             onClick={() => setShowForm(!showForm)}
-            className="bg-cookcraft-red hover:bg-cookcraft-yellow rounded-2xl px-6 py-3 text-lg font-bold text-white transition-colors"
+            className="bg-cookcraft-red hover:bg-cookcraft-yellow cursor-pointer rounded-2xl px-6 py-3 text-lg font-bold text-white transition-colors"
           >
             {showForm ? "Cancel" : "Add Ingredient"}
           </button>
@@ -246,14 +246,14 @@ const InventoryPage = () => {
               <div className="flex gap-4">
                 <button
                   type="submit"
-                  className="bg-cookcraft-red hover:bg-cookcraft-yellow flex-1 rounded-2xl p-3 text-lg font-bold text-white transition-colors"
+                  className="bg-cookcraft-red hover:bg-cookcraft-yellow flex-1 cursor-pointer rounded-2xl p-3 text-lg font-bold text-white transition-colors"
                 >
                   {editingId ? "Update" : "Add"}
                 </button>
                 <button
                   type="button"
                   onClick={resetForm}
-                  className="border-cookcraft-olive text-cookcraft-olive hover:bg-cookcraft-white flex-1 rounded-2xl border-3 p-3 text-lg font-bold transition-colors"
+                  className="border-cookcraft-olive text-cookcraft-olive hover:bg-cookcraft-green flex-1 cursor-pointer rounded-2xl border-3 p-3 text-lg font-bold transition-colors"
                 >
                   Cancel
                 </button>
@@ -273,7 +273,7 @@ const InventoryPage = () => {
           <select
             value={filterCategory}
             onChange={(e) => setFilterCategory(e.target.value)}
-            className="border-cookcraft-olive rounded-2xl border-3 p-3"
+            className="border-cookcraft-olive cursor-pointer rounded-2xl border-3 p-3"
           >
             <option value="">All Categories</option>
             {INGREDIENT_CATEGORIES.map((cat) => (
@@ -334,13 +334,13 @@ const InventoryPage = () => {
                         <div className="mt-4 flex gap-2">
                           <button
                             onClick={() => handleQuickAdd(ingredient)}
-                            className="bg-cookcraft-green hover:bg-cookcraft-yellow flex-1 rounded-2xl p-2 text-sm font-bold text-white transition-colors"
+                            className="bg-cookcraft-green hover:bg-cookcraft-yellow flex-1 cursor-pointer rounded-2xl p-2 text-sm font-bold text-white transition-colors"
                           >
                             +1
                           </button>
                           <button
                             onClick={() => handleEdit(ingredient)}
-                            className="text-cookcraft-red hover:text-cookcraft-yellow flex-1 rounded-2xl border-3 p-2 text-sm font-bold transition-colors"
+                            className="text-cookcraft-red hover:text-cookcraft-yellow flex-1 cursor-pointer rounded-2xl border-3 p-2 text-sm font-bold transition-colors"
                           >
                             Edit
                           </button>
