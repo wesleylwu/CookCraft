@@ -12,7 +12,7 @@ import { useState } from "react";
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathName = usePathname();
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
 
   return (
     <nav className="bg-cookcraft-white font-cookcraft-roboto border-cookcraft-olive relative border-b-3">
