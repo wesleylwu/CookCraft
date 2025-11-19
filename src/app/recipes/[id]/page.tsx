@@ -207,7 +207,7 @@ const RecipeDetailPage = () => {
                   onClick={() => handleUpdateRating(star)}
                   onMouseEnter={() => setStarHover(star)}
                   onMouseLeave={() => setStarHover(0)}
-                  className="text-3xl transition-transform hover:scale-110"
+                  className="cursor-pointer text-3xl transition-transform hover:scale-110"
                 >
                   <span
                     className={
