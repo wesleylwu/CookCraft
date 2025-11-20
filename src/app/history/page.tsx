@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { getMealHistory, deleteMeal } from "@/database/api/meals";
 import { MealWithRecipe } from "@/types/database";
+import { motion } from "motion/react";
 
 const HistoryPage = () => {
   const [mealsList, setMealsList] = useState<MealWithRecipe[]>([]);
@@ -59,7 +60,13 @@ const HistoryPage = () => {
             </p>
           </div>
         ) : (
-          <div className="flex flex-col gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col gap-4"
+          >
             {mealsList.map((mealItem) => {
               const mealDate = new Date(mealItem.eaten_at);
               const formattedDate = mealDate.toLocaleDateString("en-US", {
@@ -71,8 +78,11 @@ const HistoryPage = () => {
               });
 
               return (
-                <div
+                <motion.div
                   key={mealItem.id}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25 }}
                   className="border-cookcraft-olive bg-cookcraft-white rounded-2xl border-3 p-6"
                 >
                   <div className="flex items-start justify-between">
@@ -101,10 +111,10 @@ const HistoryPage = () => {
                       Delete
                     </button>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         )}
       </div>
     </div>

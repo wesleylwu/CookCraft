@@ -85,7 +85,7 @@ const LoginPage = () => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-cookcraft-red hover:bg-cookcraft-yellow disabled:bg-cookcraft-green mt-2 rounded-2xl p-4 text-lg font-bold text-white transition-colors disabled:cursor-not-allowed"
+            className="bg-cookcraft-red hover:bg-cookcraft-yellow disabled:bg-cookcraft-green mt-2 cursor-pointer rounded-2xl p-4 text-lg font-bold text-white transition-colors disabled:cursor-not-allowed"
           >
             {loading ? "Sending Magic Link..." : "Send Magic Link"}
           </button>

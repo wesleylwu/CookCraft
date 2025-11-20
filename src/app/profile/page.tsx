@@ -176,7 +176,7 @@ const ProfilePage = () => {
             {!isEditing && (
               <button
                 onClick={() => setIsEditing(true)}
-                className="text-cookcraft-red hover:text-cookcraft-yellow font-medium"
+                className="text-cookcraft-red hover:text-cookcraft-yellow cursor-pointer font-medium"
               >
                 Edit
               </button>
@@ -381,7 +381,7 @@ const ProfilePage = () => {
         <div className="border-cookcraft-olive mt-8 border-t-2 pt-6">
           <button
             onClick={handleUserSignOut}
-            className="bg-cookcraft-red hover:bg-cookcraft-yellow w-full rounded-2xl p-4 text-lg font-bold text-white transition-colors"
+            className="bg-cookcraft-red hover:bg-cookcraft-yellow w-full cursor-pointer rounded-2xl p-4 text-lg font-bold text-white transition-colors"
           >
             Sign Out
           </button>

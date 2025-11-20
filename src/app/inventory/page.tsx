@@ -9,6 +9,7 @@ import {
 } from "@/database/api/ingredients";
 import { Ingredient } from "@/types/database";
 import { INGREDIENT_CATEGORIES, UNITS } from "@/types/database";
+import { motion } from "motion/react";
 
 const InventoryPage = () => {
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
@@ -150,10 +151,17 @@ const InventoryPage = () => {
         </div>
 
         {showForm && (
-          <div className="border-cookcraft-olive bg-cookcraft-white mb-8 rounded-2xl border-3 p-6">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="border-cookcraft-olive bg-cookcraft-white mb-8 rounded-2xl border-3 p-6"
+          >
             <h2 className="text-cookcraft-olive mb-4 text-2xl font-bold">
               {editingId ? "Edit Ingredient" : "Add Ingredient"}
             </h2>
+
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div>
                 <label className="text-cookcraft-olive text-sm font-medium">
@@ -259,7 +267,7 @@ const InventoryPage = () => {
                 </button>
               </div>
             </form>
-          </div>
+          </motion.div>
         )}
 
         <div className="mb-6 flex gap-4">
@@ -273,7 +281,7 @@ const InventoryPage = () => {
           <select
             value={filterCategory}
             onChange={(e) => setFilterCategory(e.target.value)}
-            className="border-cookcraft-olive cursor-pointer rounded-2xl border-3 p-3"
+            className="border-cookcraft-olive hover:border-cookcraft-red cursor-pointer rounded-2xl border-3 p-3"
           >
             <option value="">All Categories</option>
             {INGREDIENT_CATEGORIES.map((cat) => (
@@ -307,8 +315,12 @@ const InventoryPage = () => {
                   {items.map((ingredient) => {
                     const isExpanded = expandedId === ingredient.id;
                     return (
-                      <div
+                      <motion.div
                         key={ingredient.id}
+                        initial={{ opacity: 0, y: -10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
                         className="border-cookcraft-olive bg-cookcraft-white rounded-2xl border-3 p-4"
                       >
                         <div
@@ -356,7 +368,7 @@ const InventoryPage = () => {
                             </button>
                           </div>
                         )}
-                      </div>
+                      </motion.div>
                     );
                   })}
                 </div>
