@@ -41,9 +41,11 @@ const NavBar = () => {
         </div>
 
         <div className="mr-6 flex items-center gap-4">
-          {user && (
+          {loading ? (
+            <div className="border-cookcraft-olive h-10 w-10 animate-spin rounded-full border-3 border-t-transparent"></div>
+          ) : (
             <Link
-              href="/profile"
+              href={user ? "/profile" : "/login"}
               className="hidden md:block"
               onClick={() => setIsOpen(false)}
             >
