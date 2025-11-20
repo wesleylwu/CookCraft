@@ -5,6 +5,7 @@ import { getRecipes, deleteRecipe } from "@/database/api/recipes";
 import { logMeal } from "@/database/api/meals";
 import { RecipeWithIngredients } from "@/types/database";
 import Link from "next/link";
+import { motion } from "motion/react";
 
 const RecipesPage = () => {
   const [recipes, setRecipes] = useState<RecipeWithIngredients[]>([]);
@@ -111,7 +112,7 @@ const RecipesPage = () => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as "rating" | "time")}
-            className="border-cookcraft-olive rounded-2xl border-3 p-3"
+            className="border-cookcraft-olive hover:border-cookcraft-red cursor-pointer rounded-2xl border-3 p-3"
           >
             <option value="rating">Sort by Rating</option>
             <option value="time">Sort by Time</option>
@@ -131,10 +132,17 @@ const RecipesPage = () => {
             </p>
           </div>
         ) : (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          >
             {filteredRecipes.map((recipe) => {
               const totalTime =
                 (recipe.prep_time || 0) + (recipe.cook_time || 0);
+
               return (
                 <div
                   key={recipe.id}
@@ -225,7 +233,7 @@ const RecipesPage = () => {
                           showMealForm === recipe.id ? null : recipe.id,
                         )
                       }
-                      className="bg-cookcraft-red hover:bg-cookcraft-yellow flex-1 rounded-2xl p-2 font-bold text-white transition-colors"
+                      className="bg-cookcraft-red hover:bg-cookcraft-yellow flex-1 cursor-pointer rounded-2xl p-2 font-bold text-white transition-colors"
                     >
                       {showMealForm === recipe.id ? "Cancel" : "Log Meal"}
                     </button>
@@ -237,7 +245,7 @@ const RecipesPage = () => {
                     </Link>
                     <button
                       onClick={() => handleDelete(recipe.id)}
-                      className="text-cookcraft-red hover:text-cookcraft-yellow rounded-2xl border-3 p-2 px-3 font-bold transition-colors"
+                      className="text-cookcraft-red hover:text-cookcraft-yellow cursor-pointer rounded-2xl border-3 p-2 px-3 font-bold transition-colors"
                     >
                       ×
                     </button>
@@ -245,7 +253,7 @@ const RecipesPage = () => {
                 </div>
               );
             })}
-          </div>
+          </motion.div>
         )}
       </div>
     </div>

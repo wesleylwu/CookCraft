@@ -195,8 +195,9 @@ const CreateRecipePage = () => {
                   className="border-cookcraft-olive mt-1 w-full rounded-2xl border-3 p-3"
                 >
                   {DIFFICULTY_LEVELS.map((level) => (
-                    <option key={level} value={level}>
-                      {level}
+                    <option key={level} value={level.toLowerCase()}>
+                      {level.charAt(0).toUpperCase() +
+                        level.slice(1).toLowerCase()}
                     </option>
                   ))}
                 </select>
@@ -266,6 +267,7 @@ const CreateRecipePage = () => {
                       })
                     }
                     step="0.01"
+                    min="0"
                     className="border-cookcraft-olive w-24 rounded-2xl border-3 p-2 text-sm"
                   />
                   <select
@@ -321,14 +323,14 @@ const CreateRecipePage = () => {
               <button
                 type="submit"
                 disabled={isSaving || ingredientsList.length === 0}
-                className="bg-cookcraft-red hover:bg-cookcraft-yellow disabled:bg-cookcraft-green flex-1 rounded-2xl p-4 text-lg font-bold text-white transition-colors disabled:cursor-not-allowed"
+                className="bg-cookcraft-red hover:bg-cookcraft-yellow disabled:bg-cookcraft-green flex-1 cursor-pointer rounded-2xl p-4 text-lg font-bold text-white transition-colors disabled:cursor-not-allowed"
               >
                 {isSaving ? "Creating..." : "Create Recipe"}
               </button>
               <button
                 type="button"
                 onClick={() => router.back()}
-                className="border-cookcraft-olive text-cookcraft-olive hover:bg-cookcraft-white flex-1 rounded-2xl border-3 p-4 text-lg font-bold transition-colors"
+                className="border-cookcraft-olive text-cookcraft-olive hover:bg-cookcraft-green flex-1 cursor-pointer rounded-2xl border-3 p-4 text-lg font-bold transition-colors"
               >
                 Cancel
               </button>

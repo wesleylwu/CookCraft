@@ -9,6 +9,7 @@ import {
 } from "@/database/api/ingredients";
 import { Ingredient } from "@/types/database";
 import { INGREDIENT_CATEGORIES, UNITS } from "@/types/database";
+import { motion } from "motion/react";
 
 const InventoryPage = () => {
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
@@ -143,17 +144,24 @@ const InventoryPage = () => {
           </h1>
           <button
             onClick={() => setShowForm(!showForm)}
-            className="bg-cookcraft-red hover:bg-cookcraft-yellow rounded-2xl px-6 py-3 text-lg font-bold text-white transition-colors"
+            className="bg-cookcraft-red hover:bg-cookcraft-yellow cursor-pointer rounded-2xl px-6 py-3 text-lg font-bold text-white transition-colors"
           >
             {showForm ? "Cancel" : "Add Ingredient"}
           </button>
         </div>
 
         {showForm && (
-          <div className="border-cookcraft-olive bg-cookcraft-white mb-8 rounded-2xl border-3 p-6">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="border-cookcraft-olive bg-cookcraft-white mb-8 rounded-2xl border-3 p-6"
+          >
             <h2 className="text-cookcraft-olive mb-4 text-2xl font-bold">
               {editingId ? "Edit Ingredient" : "Add Ingredient"}
             </h2>
+
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div>
                 <label className="text-cookcraft-olive text-sm font-medium">
@@ -246,20 +254,20 @@ const InventoryPage = () => {
               <div className="flex gap-4">
                 <button
                   type="submit"
-                  className="bg-cookcraft-red hover:bg-cookcraft-yellow flex-1 rounded-2xl p-3 text-lg font-bold text-white transition-colors"
+                  className="bg-cookcraft-red hover:bg-cookcraft-yellow flex-1 cursor-pointer rounded-2xl p-3 text-lg font-bold text-white transition-colors"
                 >
                   {editingId ? "Update" : "Add"}
                 </button>
                 <button
                   type="button"
                   onClick={resetForm}
-                  className="border-cookcraft-olive text-cookcraft-olive hover:bg-cookcraft-white flex-1 rounded-2xl border-3 p-3 text-lg font-bold transition-colors"
+                  className="border-cookcraft-olive text-cookcraft-olive hover:bg-cookcraft-green flex-1 cursor-pointer rounded-2xl border-3 p-3 text-lg font-bold transition-colors"
                 >
                   Cancel
                 </button>
               </div>
             </form>
-          </div>
+          </motion.div>
         )}
 
         <div className="mb-6 flex gap-4">
@@ -273,7 +281,7 @@ const InventoryPage = () => {
           <select
             value={filterCategory}
             onChange={(e) => setFilterCategory(e.target.value)}
-            className="border-cookcraft-olive rounded-2xl border-3 p-3"
+            className="border-cookcraft-olive hover:border-cookcraft-red cursor-pointer rounded-2xl border-3 p-3"
           >
             <option value="">All Categories</option>
             {INGREDIENT_CATEGORIES.map((cat) => (
@@ -307,8 +315,12 @@ const InventoryPage = () => {
                   {items.map((ingredient) => {
                     const isExpanded = expandedId === ingredient.id;
                     return (
-                      <div
+                      <motion.div
                         key={ingredient.id}
+                        initial={{ opacity: 0, y: -10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
                         className="border-cookcraft-olive bg-cookcraft-white rounded-2xl border-3 p-4"
                       >
                         <div
@@ -334,13 +346,13 @@ const InventoryPage = () => {
                         <div className="mt-4 flex gap-2">
                           <button
                             onClick={() => handleQuickAdd(ingredient)}
-                            className="bg-cookcraft-green hover:bg-cookcraft-yellow flex-1 rounded-2xl p-2 text-sm font-bold text-white transition-colors"
+                            className="bg-cookcraft-green hover:bg-cookcraft-yellow flex-1 cursor-pointer rounded-2xl p-2 text-sm font-bold text-white transition-colors"
                           >
                             +1
                           </button>
                           <button
                             onClick={() => handleEdit(ingredient)}
-                            className="text-cookcraft-red hover:text-cookcraft-yellow flex-1 rounded-2xl border-3 p-2 text-sm font-bold transition-colors"
+                            className="text-cookcraft-red hover:text-cookcraft-yellow flex-1 cursor-pointer rounded-2xl border-3 p-2 text-sm font-bold transition-colors"
                           >
                             Edit
                           </button>
@@ -356,7 +368,7 @@ const InventoryPage = () => {
                             </button>
                           </div>
                         )}
-                      </div>
+                      </motion.div>
                     );
                   })}
                 </div>
