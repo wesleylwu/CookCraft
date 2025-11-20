@@ -8,6 +8,7 @@ import navigations from "@/data/NavBarLinks";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import { useState } from "react";
+import { motion } from "motion/react";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,11 +18,11 @@ const NavBar = () => {
   return (
     <nav className="bg-cookcraft-white font-cookcraft-roboto border-cookcraft-olive relative border-b-3">
       <div className="flex items-center justify-between p-5">
-        <div className="ml-6">
+        <motion.p whileHover={{ scale: 1.05 }} className="ml-6">
           <Link href="/" onClick={() => setIsOpen(false)}>
             <Image src={chefHatIcon} alt="Chef Hat Icon" width={40} />
           </Link>
-        </div>
+        </motion.p>
 
         <div className="hidden items-center justify-center gap-16 text-2xl font-bold md:flex">
           {user &&
@@ -49,7 +50,9 @@ const NavBar = () => {
               className="hidden md:block"
               onClick={() => setIsOpen(false)}
             >
-              <Image src={profileIcon} alt="Profile Icon" width={40} />
+              <motion.p whileHover={{ scale: 1.05 }}>
+                <Image src={profileIcon} alt="Profile Icon" width={40} />
+              </motion.p>
             </Link>
           )}
 
