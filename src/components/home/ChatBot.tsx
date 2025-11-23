@@ -20,19 +20,24 @@ const ChatBot = () => {
   }, []);
 
   return (
-    <div className="text-cookcraft-olive flex h-screen w-screen flex-col items-center justify-center text-6xl font-bold">
+    <div className="text-cookcraft-olive flex h-screen w-screen flex-col items-center justify-center">
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
+        className="text-3xl font-bold sm:text-5xl lg:text-6xl"
       >
         {displayedText}
       </motion.p>
-      <Image src={logo} alt="Cook Craft Logo" className="mt-20 w-1/4" />
+      <Image
+        src={logo}
+        alt="Cook Craft Logo"
+        className="mt-17 w-40 sm:w-56 md:w-64 lg:w-72 xl:w-80"
+      />
       <input
         type="text"
         placeholder="Ask CookCraft..."
-        className="mt-12 w-1/3 rounded-2xl border-3 p-4 text-2xl font-normal"
+        className="mt-12 w-1/2 rounded-2xl border-3 p-4 font-normal md:w-1/3"
       />
     </div>
   );
