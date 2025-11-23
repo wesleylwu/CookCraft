@@ -6,9 +6,13 @@ import linkedInIcon from "@/public/linkedInIcon.webp";
 const Footer = () => {
   return (
     <div className="flow-row bg-cookcraft-white border-cookcraft-olive flex items-center justify-between border-t-3">
-      <div className="text-cookcraft-olive flex items-center p-5 text-lg">
-        <Image src={chefHatIcon} alt="Chef Hat Icon" className="mr-4" />
-        2025 CookCraft ©
+      <div className="text-cookcraft-olive flex items-center p-5">
+        <Image
+          src={chefHatIcon}
+          alt="Chef Hat Icon"
+          className="mr-4 hidden sm:block"
+        />
+        <div className="text-sm sm:text-lg">2025 CookCraft ©</div>
       </div>
 
       <div>
