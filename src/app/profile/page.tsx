@@ -122,7 +122,7 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="bg-cookcraft-white flex min-h-screen w-screen flex-col items-center py-20">
+    <div className="bg-cookcraft-white flex min-h-screen w-screen flex-col items-center py-20 p-10">
       <div className="border-cookcraft-olive bg-cookcraft-white w-full max-w-2xl rounded-2xl border-3 p-8">
         <div className="flex items-center gap-6">
           <Image

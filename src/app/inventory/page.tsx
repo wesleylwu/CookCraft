@@ -270,7 +270,7 @@ const InventoryPage = () => {
           </motion.div>
         )}
 
-        <div className="mb-6 flex gap-4">
+        <div className="mb-6 flex flex-col sm:flex-row gap-4">
           <input
             type="text"
             placeholder="Search ingredients..."
