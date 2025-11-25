@@ -67,10 +67,10 @@ const ProfilePage = () => {
       };
 
       await updateProfile(updatedProfileData);
-      await loadUserProfile();
       setIsEditing(false);
     } catch (error) {
       console.error(error);
+    } finally {
       setIsSaving(false);
     }
   };
