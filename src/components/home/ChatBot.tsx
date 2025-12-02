@@ -178,26 +178,25 @@ const ChatBot = () => {
   };
 
   return (
-    <div className="text-cookcraft-olive flex h-screen w-screen flex-col items-center justify-center">
+    <div className="text-cookcraft-olive flex h-full w-full flex-col items-center justify-center">
       {messages.length === 0 ? (
         <div className="flex flex-col items-center">
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="text-6xl font-bold"
+            className="text-3xl font-bold sm:text-5xl lg:text-6xl"
           >
             {displayedText}
           </motion.p>
-          <Image src={logo} alt="Cook Craft Logo" className="mt-20 w-1/4" />
+          <Image
+            src={logo}
+            alt="Cook Craft Logo"
+            className="mt-17 mb-7 w-40 sm:w-56 md:w-64 lg:w-72 xl:w-80"
+          />
         </div>
       ) : (
-        <div className="flex h-full w-full max-w-4xl flex-col px-4 py-8">
-          <div className="border-cookcraft-olive mb-4 flex items-center gap-3 border-b-3 pb-4">
-            <Image src={logo} alt="Cook Craft Logo" className="w-12" />
-            <h2 className="text-2xl font-bold">CookCraft AI</h2>
-          </div>
-
+        <div className="flex w-1/3 flex-1 flex-col overflow-hidden px-4 py-4 md:w-1/2">
           <div className="mb-4 flex-1 space-y-4 overflow-y-auto">
             {messages.map((message, index) => (
               <div
@@ -238,7 +237,7 @@ const ChatBot = () => {
         </div>
       )}
 
-      <div className="w-full max-w-4xl px-4 pb-8">
+      <div className="w-7/8 px-4 pb-8 sm:w-full sm:max-w-xl md:max-w-2xl">
         <div className="flex gap-2">
           <input
             type="text"
@@ -247,12 +246,12 @@ const ChatBot = () => {
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
             disabled={isLoading}
-            className="border-cookcraft-olive focus:border-cookcraft-red flex-1 rounded-2xl border-3 p-4 text-2xl font-normal focus:outline-none disabled:opacity-50"
+            className="border-cookcraft-olive focus:border-cookcraft-red flex-1 rounded-2xl border-3 p-4 text-base font-normal focus:outline-none disabled:opacity-50 sm:text-lg md:text-xl lg:text-2xl"
           />
           <button
             onClick={handleSendMessage}
             disabled={isLoading || !input.trim()}
-            className="bg-cookcraft-red hover:bg-cookcraft-yellow disabled:bg-cookcraft-green rounded-2xl px-6 text-2xl font-bold text-white transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+            className="bg-cookcraft-red hover:bg-cookcraft-yellow disabled:bg-cookcraft-green rounded-2xl px-6 text-base font-bold text-white transition-colors disabled:cursor-not-allowed disabled:opacity-50 sm:text-lg md:text-xl lg:text-2xl"
           >
             Send
           </button>
