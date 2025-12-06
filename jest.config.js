@@ -6,7 +6,10 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   testEnvironment: "jest-environment-node",
-  testMatch: ["**/__tests__/**/*.test.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+  testMatch: [
+    "**/__tests__/**/*.test.[jt]s?(x)",
+    "**/?(*.)+(spec|test).[jt]s?(x)",
+  ],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
@@ -14,4 +17,3 @@ const customJestConfig = {
 };
 
 module.exports = createJestConfig(customJestConfig);
-

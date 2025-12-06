@@ -104,4 +104,3 @@ describe("recipes api", () => {
     expect(mockRecipeQuery.insert).toHaveBeenCalled();
   });
 });
-

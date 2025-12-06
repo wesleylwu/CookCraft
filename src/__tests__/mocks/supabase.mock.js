@@ -18,4 +18,3 @@ module.exports = {
   createClient: jest.fn(() => mockSupabaseClient),
   mockSupabaseClient,
 };
-

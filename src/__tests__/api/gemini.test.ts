@@ -30,7 +30,7 @@ describe("gemini api route", () => {
 
   test("returns error if no auth token", async () => {
     const { POST } = await import("@/app/api/gemini/route");
-    
+
     const request = new NextRequest("http://localhost/api/gemini", {
       method: "POST",
       body: JSON.stringify({
@@ -48,7 +48,7 @@ describe("gemini api route", () => {
 
   test("calls gemini with correct parameters", async () => {
     const { POST } = await import("@/app/api/gemini/route");
-    
+
     const mockUser = { id: "user123" };
     const mockResponse = {
       text: "Here's a recipe!",
@@ -89,7 +89,7 @@ describe("gemini api route", () => {
 
   test("handles function calls for get_user_ingredients", async () => {
     const { POST } = await import("@/app/api/gemini/route");
-    
+
     const mockUser = { id: "user123" };
     const mockIngredients = [
       { id: "1", name: "flour", quantity: 2, unit: "cups" },
@@ -167,4 +167,3 @@ describe("gemini api route", () => {
     expect(mockSupabase.from).toHaveBeenCalledWith("ingredients");
   });
 });
-

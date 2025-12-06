@@ -87,4 +87,3 @@ describe("ingredients api", () => {
     expect(mockQuery.insert).toHaveBeenCalled();
   });
 });
-
