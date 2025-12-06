@@ -11,7 +11,13 @@ export default [
   },
   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
   {
-    ignores: [".next/", "out/", "node_modules", "next-env.d.ts"],
+    ignores: [
+      ".next/",
+      "out/",
+      "node_modules",
+      "next-env.d.ts",
+      "**/__tests__/**",
+    ],
   },
   { files: ["**/*.js"], languageOptions: { sourceType: "commonjs" } },
   { languageOptions: { globals: { ...globals.node } } },
